@@ -1,8 +1,11 @@
 version: 0.2
+env:
+    secrets-manager:
+        TOKEN: SonarCloud:sonarCloudToken
 phases:
   install:
     runtime-versions:
       java: latest
   build:
     commands:
-      - mvn verify sonar:sonar -Dsonar.projectKey=awsdevsecops-vijay_awsdevsecops -Dsonar.organization=awsdevsecops-vijay -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=edb8c39a8054d1d236f4ebcb84f81ecd45cde572 
+      - mvn verify sonar:sonar -Dsonar.projectKey=awsdevsecops-vijay_awsdevsecops -Dsonar.organization=awsdevsecops-vijay -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=$TOKEN 
